@@ -7,9 +7,16 @@
 
 Paste in config, or write to ~/.config/starship.toml
 
+### To download
 
-To paste:
+```shell
+wget -O ~/.config/starship.toml https://raw.githubusercontent.com/vegcom/Starship-Twilite/main/starship.toml
+
+```
+
+### To paste:
 
 ```shell
 starship config
+
 ```
