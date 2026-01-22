@@ -1,0 +1,19 @@
+name: Notify on changes
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - starship.toml
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger webhook
+        run: |
+          curl -X POST \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            https://api.github.com/repos/vegcom/cozy-pwsh/dispatches \
+            -d '{"event_type":"update-starship"}'
