@@ -5,7 +5,7 @@
 # Reference: https://starship.rs/config/
 # =========================================================================== #
 
-palette = "Twilite_Darker"
+palette = "Twilite"
 
 right_format = "[$time]($style) [$jobs]($style) [$battery]($style)"
 
