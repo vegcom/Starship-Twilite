@@ -19,4 +19,5 @@ jobs:
           gh api \
             --method POST \
             /repos/$TARGET_REPO/dispatches \
-            -f "event_type=update"
+            -f "event_type=update" \
+            -f "client_payload[ref]=$(git rev-parse HEAD)"
