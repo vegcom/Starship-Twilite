@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - starship.toml
+  workflow_dispatch:
 
 jobs:
   notify:
