@@ -23,6 +23,11 @@ $character \
 
 add_newline = true
 
+follow_symlinks = false
+
+scan_timeout = 50
+command_timeout = 500
+
 [line_break]
 disabled = false
 
