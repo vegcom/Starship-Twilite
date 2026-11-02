@@ -6,17 +6,16 @@ on:
     paths:
       - starship.toml
 
-env:
-  TARGET_REPO: ${{ secrets.TARGET_REPO }}
-
 jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger webhook
+      - name: Trigger repository dispatch
+        env:
+          GH_TOKEN: ${{ secrets.REPO_DISPATCH_TOKEN }}
+          TARGET_REPO: ${{ secrets.TARGET_REPO }}
         run: |
-          curl -X POST \
-            -H "Accept: application/vnd.github.v3+json" \
-            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            https://api.github.com/repos/${{ env.TARGET_REPO }}/dispatches \
-            -d '{"event_type":"update"}'
+          gh api \
+            --method POST \
+            /repos/$TARGET_REPO/dispatches \
+            -f "event_type=update"
